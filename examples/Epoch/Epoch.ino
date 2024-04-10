@@ -13,13 +13,16 @@
   https://github.com/stm32duino/STM32RTC
 */
 
-#include <STM32RTC.h>
+#include <STM32RTCMbed.h>
 
 /* Get the rtc object */
 STM32RTC& rtc = STM32RTC::getInstance();
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
+  while (!Serial) ;
+
+  delay(2000);
 
   // Select RTC clock source: LSI_CLOCK, LSE_CLOCK or HSE_CLOCK.
   // By default the LSI is selected as source.
