@@ -6,6 +6,9 @@
 #ifndef STM32H7xx
 #define STM32H7xx 1
 #endif
+#ifndef ARDUINO_GENERIC_H747XIHX
+#define ARDUINO_GENERIC_H747XIHX 1
+#endif
 #endif
 
 /**
