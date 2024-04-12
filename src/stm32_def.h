@@ -29,7 +29,9 @@
                                         |(STM32_CORE_VERSION_PATCH << 8U )\
                                         |(STM32_CORE_VERSION_EXTRA))
 
+#ifndef USE_HAL_DRIVER
 #define USE_HAL_DRIVER
+#endif
 
 #if defined(STM32C0xx)
   #include "stm32c0xx.h"
@@ -130,7 +132,9 @@
  * Libc porting layers
  */
 #if defined (  __GNUC__  ) /* GCC CS3 */
+  #ifndef WEAK
   #define WEAK __attribute__ ((weak))
+  #endif
 #endif
 
 #ifdef __cplusplus

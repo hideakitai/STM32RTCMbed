@@ -508,16 +508,16 @@ bool RTC_init(hourFormat_t format, binaryMode_t mode, sourceClock_t source, bool
   } else {
     // RTC is already initialized
     uint32_t oldRtcClockSource = __HAL_RCC_GET_RTC_SOURCE();
-    oldRtcClockSource = ((oldRtcClockSource == RCC_RTCCLKSOURCE_LSE) ? LSE_CLOCK :
-                         (oldRtcClockSource == RCC_RTCCLKSOURCE_LSI) ? LSI_CLOCK :
+    oldRtcClockSource = ((oldRtcClockSource == static_cast<uint32_t>(RCC_RTCCLKSOURCE_LSE)) ? static_cast<uint32_t>(LSE_CLOCK) :
+                         (oldRtcClockSource == static_cast<uint32_t>(RCC_RTCCLKSOURCE_LSI)) ? static_cast<uint32_t>(LSI_CLOCK) :
 #if defined(RCC_RTCCLKSOURCE_HSE_DIVX)
-                         (oldRtcClockSource == RCC_RTCCLKSOURCE_HSE_DIVX) ? HSE_CLOCK :
+                         (oldRtcClockSource == static_cast<uint32_t>(RCC_RTCCLKSOURCE_HSE_DIVX)) ? static_cast<uint32_t>(HSE_CLOCK) :
 #elif defined(RCC_RTCCLKSOURCE_HSE_DIV32)
-                         (oldRtcClockSource == RCC_RTCCLKSOURCE_HSE_DIV32) ? HSE_CLOCK :
+                         (oldRtcClockSource == static_cast<uint32_t>(RCC_RTCCLKSOURCE_HSE_DIV32)) ? static_cast<uint32_t>(HSE_CLOCK) :
 #elif defined(RCC_RTCCLKSOURCE_HSE_DIV)
-                         (oldRtcClockSource == RCC_RTCCLKSOURCE_HSE_DIV) ? HSE_CLOCK :
+                         (oldRtcClockSource == static_cast<uint32_t>(RCC_RTCCLKSOURCE_HSE_DIV)) ? static_cast<uint32_t>(HSE_CLOCK) :
 #elif defined(RCC_RTCCLKSOURCE_HSE_DIV128)
-                         (oldRtcClockSource == RCC_RTCCLKSOURCE_HSE_DIV128) ? HSE_CLOCK :
+                         (oldRtcClockSource == static_cast<uint32_t>(RCC_RTCCLKSOURCE_HSE_DIV128)) ? static_cast<uint32_t>(HSE_CLOCK) :
 #endif
                          // default case corresponding to no clock source
                          0xFFFFFFFF);
